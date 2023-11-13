@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shop.entity.OrderTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-11-07T00:33:32" hostname="FULL8-000" time="0.077">
+  <properties/>
+  <testcase name="영속성 전이 테스트" classname="com.shop.entity.OrderTest" time="0.039"/>
+  <testcase name="지연 로딩 테스트" classname="com.shop.entity.OrderTest" time="0.016"/>
+  <testcase name="고아객체 제거 테스트" classname="com.shop.entity.OrderTest" time="0.021"/>
+  <system-out><![CDATA[2023-11-07 09:33:32.740  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.shop.entity.OrderTest], using SpringBootContextLoader
+2023-11-07 09:33:32.740  INFO 10456 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.shop.entity.OrderTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-11-07 09:33:32.740  INFO 10456 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.shop.entity.OrderTest]: OrderTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-07 09:33:32.741  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.shop.ShopApplication for test class com.shop.entity.OrderTest
+2023-11-07 09:33:32.742  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-11-07 09:33:32.742  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1a6804d1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7db99d41, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3e0fe68f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3c799d53, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@66ed4881, org.springframework.test.context.support.DirtiesContextTestExecutionListener@578f8288, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16f52d68, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6616b9e0, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@6ab35ce3, org.springframework.test.context.event.EventPublishingTestExecutionListener@410308ff, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@7e22f3da, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2d288c47, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5d8c9945, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@49136fb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6dc4b990, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4e74adb, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3d18bdb3]
+2023-11-07 09:33:32.744  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@619cdd5e, testMethod = cascadeTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@eaf3dd0]; rollback [true]
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.761 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.746469900]
+2023-11-07 09:33:32.762 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.746469900]
+2023-11-07 09:33:32.762 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.762 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.762 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.763 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.763 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.763 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.763 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.763 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [6]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.747463200]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.747463200]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [7]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.747463200]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.747463200]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.764 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [8]
+Hibernate: 
+    insert 
+    into
+        orders
+        (reg_time, update_time, created_by, modified_by, member_id, order_date, order_status, order_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.750462900]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.750462900]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [null]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-11-07 09:33:32.765 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [9]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.758463300]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.758463300]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [6]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [9]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [10]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.758463300]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.758463300]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [7]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [9]
+2023-11-07 09:33:32.766 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [11]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.759463300]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.759463300]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [8]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [9]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.767 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [12]
+Hibernate: 
+    select
+        order0_.order_id as order_id1_6_0_,
+        order0_.reg_time as reg_time2_6_0_,
+        order0_.update_time as update_t3_6_0_,
+        order0_.created_by as created_4_6_0_,
+        order0_.modified_by as modified5_6_0_,
+        order0_.member_id as member_i8_6_0_,
+        order0_.order_date as order_da6_6_0_,
+        order0_.order_status as order_st7_6_0_ 
+    from
+        orders order0_ 
+    where
+        order0_.order_id=?
+2023-11-07 09:33:32.771 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+2023-11-07 09:33:32.771 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_6_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.750463]
+2023-11-07 09:33:32.771 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_6_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.750463]
+2023-11-07 09:33:32.772 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_6_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.772 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_6_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.772 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([member_i8_6_0_] : [BIGINT]) - [null]
+2023-11-07 09:33:32.772 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_da6_6_0_] : [TIMESTAMP]) - [null]
+2023-11-07 09:33:32.772 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_st7_6_0_] : [VARCHAR]) - [null]
+Hibernate: 
+    select
+        orderitems0_.order_id as order_id9_5_1_,
+        orderitems0_.order_item_id as order_it1_5_1_,
+        orderitems0_.order_item_id as order_it1_5_0_,
+        orderitems0_.reg_time as reg_time2_5_0_,
+        orderitems0_.update_time as update_t3_5_0_,
+        orderitems0_.created_by as created_4_5_0_,
+        orderitems0_.modified_by as modified5_5_0_,
+        orderitems0_.count as count6_5_0_,
+        orderitems0_.item_id as item_id8_5_0_,
+        orderitems0_.order_id as order_id9_5_0_,
+        orderitems0_.order_price as order_pr7_5_0_ 
+    from
+        order_item orderitems0_ 
+    where
+        orderitems0_.order_id=?
+2023-11-07 09:33:32.776 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+2023-11-07 09:33:32.778 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_0_] : [BIGINT]) - [10]
+2023-11-07 09:33:32.778 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.758463]
+2023-11-07 09:33:32.778 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.758463]
+2023-11-07 09:33:32.778 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.778 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([count6_5_0_] : [INTEGER]) - [10]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([item_id8_5_0_] : [BIGINT]) - [6]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_0_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_pr7_5_0_] : [INTEGER]) - [1000]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_1_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_1_] : [BIGINT]) - [10]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_0_] : [BIGINT]) - [11]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.758463]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.758463]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([count6_5_0_] : [INTEGER]) - [10]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([item_id8_5_0_] : [BIGINT]) - [7]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_0_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_pr7_5_0_] : [INTEGER]) - [1000]
+2023-11-07 09:33:32.779 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_1_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_1_] : [BIGINT]) - [11]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_0_] : [BIGINT]) - [12]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.759463]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.759463]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([count6_5_0_] : [INTEGER]) - [10]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([item_id8_5_0_] : [BIGINT]) - [8]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_0_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_pr7_5_0_] : [INTEGER]) - [1000]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_1_] : [BIGINT]) - [9]
+2023-11-07 09:33:32.780 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_it1_5_1_] : [BIGINT]) - [12]
+2023-11-07 09:33:32.782  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@619cdd5e, testMethod = cascadeTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-11-07 09:33:32.784  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@6a4c9d1b, testMethod = lazyLoadingTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@eaf3dd0]; rollback [true]
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.789 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.785462800]
+2023-11-07 09:33:32.789 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.785462800]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [13]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.785462800]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.785462800]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.790 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [14]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.786462]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.786462]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.791 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [15]
+Hibernate: 
+    insert 
+    into
+        member
+        (reg_time, update_time, created_by, modified_by, address, email, name, password, role, member_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.787465800]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.787465800]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [16]
+Hibernate: 
+    insert 
+    into
+        orders
+        (reg_time, update_time, created_by, modified_by, member_id, order_date, order_status, order_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.787465800]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.787465800]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [16]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-11-07 09:33:32.792 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [17]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [13]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [17]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [18]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [14]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [17]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.793 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [19]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.788465300]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [15]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [17]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.794 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [20]
+Hibernate: 
+    select
+        orderitem0_.order_item_id as order_it1_5_0_,
+        orderitem0_.reg_time as reg_time2_5_0_,
+        orderitem0_.update_time as update_t3_5_0_,
+        orderitem0_.created_by as created_4_5_0_,
+        orderitem0_.modified_by as modified5_5_0_,
+        orderitem0_.count as count6_5_0_,
+        orderitem0_.item_id as item_id8_5_0_,
+        orderitem0_.order_id as order_id9_5_0_,
+        orderitem0_.order_price as order_pr7_5_0_ 
+    from
+        order_item orderitem0_ 
+    where
+        orderitem0_.order_item_id=?
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [18]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.788465]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_5_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.788465]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_5_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([count6_5_0_] : [INTEGER]) - [10]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([item_id8_5_0_] : [BIGINT]) - [13]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_id9_5_0_] : [BIGINT]) - [17]
+2023-11-07 09:33:32.795 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_pr7_5_0_] : [INTEGER]) - [1000]
+Order class : class com.shop.entity.Order$HibernateProxy$zeQHjW8j
+===========================
+Hibernate: 
+    select
+        order0_.order_id as order_id1_6_0_,
+        order0_.reg_time as reg_time2_6_0_,
+        order0_.update_time as update_t3_6_0_,
+        order0_.created_by as created_4_6_0_,
+        order0_.modified_by as modified5_6_0_,
+        order0_.member_id as member_i8_6_0_,
+        order0_.order_date as order_da6_6_0_,
+        order0_.order_status as order_st7_6_0_ 
+    from
+        orders order0_ 
+    where
+        order0_.order_id=?
+2023-11-07 09:33:32.796 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [17]
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([reg_time2_6_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.787466]
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_t3_6_0_] : [TIMESTAMP]) - [2023-11-07T09:33:32.787466]
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([created_4_6_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([modified5_6_0_] : [VARCHAR]) - []
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([member_i8_6_0_] : [BIGINT]) - [16]
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_da6_6_0_] : [TIMESTAMP]) - [null]
+2023-11-07 09:33:32.797 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([order_st7_6_0_] : [VARCHAR]) - [null]
+===========================
+2023-11-07 09:33:32.799  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@6a4c9d1b, testMethod = lazyLoadingTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-11-07 09:33:32.800  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@7d31918a, testMethod = orphanRemovalTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@eaf3dd0]; rollback [true]
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.807 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.802976]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.802976]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [21]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.802976]
+2023-11-07 09:33:32.808 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.802976]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [22]
+Hibernate: 
+    insert 
+    into
+        item
+        (reg_time, update_time, created_by, modified_by, item_detail, item_nm, item_sell_status, price, stock_number, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.803974700]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.803974700]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [CLOB] - [상세설명]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트 상품]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [SELL]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [10000]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [100]
+2023-11-07 09:33:32.809 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [23]
+Hibernate: 
+    insert 
+    into
+        member
+        (reg_time, update_time, created_by, modified_by, address, email, name, password, role, member_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [null]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [null]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [24]
+Hibernate: 
+    insert 
+    into
+        orders
+        (reg_time, update_time, created_by, modified_by, member_id, order_date, order_status, order_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.810 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [24]
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [null]
+2023-11-07 09:33:32.811 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-11-07 09:33:32.813 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [25]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [21]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [25]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [26]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.804975600]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [22]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [25]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [27]
+Hibernate: 
+    insert 
+    into
+        order_item
+        (reg_time, update_time, created_by, modified_by, count, item_id, order_id, order_price, order_item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-11-07T09:33:32.805976]
+2023-11-07 09:33:32.814 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2023-11-07T09:33:32.805976]
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - []
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - []
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [10]
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [23]
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [25]
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1000]
+2023-11-07 09:33:32.815 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [28]
+Hibernate: 
+    delete 
+    from
+        order_item 
+    where
+        order_item_id=?
+2023-11-07 09:33:32.816 TRACE 10456 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [26]
+2023-11-07 09:33:32.820  INFO 10456 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@5253aa21 testClass = OrderTest, testInstance = com.shop.entity.OrderTest@7d31918a, testMethod = orphanRemovalTest@OrderTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3ac726af testClass = OrderTest, locations = '{}', classes = '{class com.shop.ShopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@51972dc7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fb172e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25a6944c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d131e1b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@44e3a2b2, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@506ae4d4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

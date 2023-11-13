@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ItemControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ItemControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shop.controller.html">com.shop.controller</a> &gt; ItemControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.672s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">상품 등록 페이지 일반 회원 접근 테스트</td>
+<td class="success">itemFormNotAdminTest()</td>
+<td class="success">0.081s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">상품 등록 페이지 권한 테스트</td>
+<td class="success">itemFormTest()</td>
+<td class="success">0.591s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2023-11-07 09:33:30.460  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.shop.controller.ItemControllerTest], using SpringBootContextLoader
+2023-11-07 09:33:30.461  INFO 10456 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.shop.controller.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-11-07 09:33:30.461  INFO 10456 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.shop.controller.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-07 09:33:30.478  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.shop.ShopApplication for test class com.shop.controller.ItemControllerTest
+2023-11-07 09:33:30.479  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-11-07 09:33:30.480  INFO 10456 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2d4e6bb2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@13453610, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@62fee9c3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@64f3f849, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3abe1c9e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@71586f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@15d41953, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6e1e9a10, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@248e31a1, org.springframework.test.context.event.EventPublishingTestExecutionListener@2eb6a77f, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@1b1d2d7b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1c9fa12, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@549fc0b3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4f091800, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3d8d926f, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@73daf6a6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@59ea2a36]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.1)
+
+2023-11-07 09:33:30.497  INFO 10456 --- [    Test worker] com.shop.controller.ItemControllerTest   : Starting ItemControllerTest using Java 17.0.7 on FULL8-000 with PID 10456 (started by user in D:\kim\pro05\pro05_2)
+2023-11-07 09:33:30.497  INFO 10456 --- [    Test worker] com.shop.controller.ItemControllerTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-11-07 09:33:30.617  INFO 10456 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-07 09:33:30.634  INFO 10456 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 7 JPA repository interfaces.
+2023-11-07 09:33:30.760  INFO 10456 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-07 09:33:30.763  INFO 10456 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-11-07 09:33:30.764  INFO 10456 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-11-07 09:33:30.764  INFO 10456 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists cart CASCADE 
+Hibernate: 
+    
+    drop table if exists cart_item CASCADE 
+Hibernate: 
+    
+    drop table if exists item CASCADE 
+Hibernate: 
+    
+    drop table if exists item_img CASCADE 
+Hibernate: 
+    
+    drop table if exists member CASCADE 
+Hibernate: 
+    
+    drop table if exists order_item CASCADE 
+Hibernate: 
+    
+    drop table if exists orders CASCADE 
+Hibernate: 
+    
+    drop sequence if exists hibernate_sequence
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: 
+    
+    create table cart (
+       cart_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        member_id bigint,
+        primary key (cart_id)
+    )
+Hibernate: 
+    
+    create table cart_item (
+       cart_item_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        count integer not null,
+        cart_id bigint,
+        item_id bigint,
+        primary key (cart_item_id)
+    )
+Hibernate: 
+    
+    create table item (
+       item_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        item_detail clob not null,
+        item_nm varchar(50) not null,
+        item_sell_status varchar(255),
+        price integer not null,
+        stock_number integer not null,
+        primary key (item_id)
+    )
+Hibernate: 
+    
+    create table item_img (
+       item_img_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        img_name varchar(255),
+        img_url varchar(255),
+        ori_img_name varchar(255),
+        repimg_yn varchar(255),
+        item_id bigint,
+        primary key (item_img_id)
+    )
+Hibernate: 
+    
+    create table member (
+       member_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        address varchar(255),
+        email varchar(255),
+        name varchar(255),
+        password varchar(255),
+        role varchar(255),
+        primary key (member_id)
+    )
+Hibernate: 
+    
+    create table order_item (
+       order_item_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        count integer not null,
+        order_price integer not null,
+        item_id bigint,
+        order_id bigint,
+        primary key (order_item_id)
+    )
+Hibernate: 
+    
+    create table orders (
+       order_id bigint not null,
+        reg_time timestamp,
+        update_time timestamp,
+        created_by varchar(255),
+        modified_by varchar(255),
+        order_date timestamp,
+        order_status varchar(255),
+        member_id bigint,
+        primary key (order_id)
+    )
+Hibernate: 
+    
+    alter table member 
+       add constraint UK_mbmcqelty0fbrvxp1q58dn57t unique (email)
+Hibernate: 
+    
+    alter table cart 
+       add constraint FKix170nytunweovf2v9137mx2o 
+       foreign key (member_id) 
+       references member
+Hibernate: 
+    
+    alter table cart_item 
+       add constraint FK1uobyhgl1wvgt1jpccia8xxs3 
+       foreign key (cart_id) 
+       references cart
+Hibernate: 
+    
+    alter table cart_item 
+       add constraint FKdljf497fwm1f8eb1h8t6n50u9 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    
+    alter table item_img 
+       add constraint FKdd5u08y3ap4c46ayrqjf8g88m 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    
+    alter table order_item 
+       add constraint FKija6hjjiit8dprnmvtvgdp6ru 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    
+    alter table order_item 
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt 
+       foreign key (order_id) 
+       references orders
+Hibernate: 
+    
+    alter table orders 
+       add constraint FKpktxwhj3x9m4gth5ff6bkqgeb 
+       foreign key (member_id) 
+       references member
+2023-11-07 09:33:30.878  INFO 10456 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-07 09:33:30.878  INFO 10456 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-07 09:33:31.115  WARN 10456 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-07 09:33:31.317  INFO 10456 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e870441, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14fe2e62, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d9ac1ff, org.springframework.security.web.header.HeaderWriterFilter@587107c, org.springframework.security.web.csrf.CsrfFilter@8f2513c, org.springframework.security.web.authentication.logout.LogoutFilter@7b9e4a2a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@25b8a2f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52418721, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ff879e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a48f55b, org.springframework.security.web.session.SessionManagementFilter@47fb038d, org.springframework.security.web.access.ExceptionTranslationFilter@561b39f4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@108ed58d]
+2023-11-07 09:33:31.585  INFO 10456 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-07 09:33:31.585  INFO 10456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-07 09:33:31.586  INFO 10456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-11-07 09:33:31.597  INFO 10456 --- [    Test worker] com.shop.controller.ItemControllerTest   : Started ItemControllerTest in 1.115 seconds (JVM running for 8.175)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /admin/item/new
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = null
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = Forbidden
+          Headers = [X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-11-07 09:33:32.227  WARN 10456 --- [    Test worker] n.n.u.t.l.fragments.FragmentProcessor    : You don't need to put the layout:fragment/data-layout-fragment attribute into the &lt;head&gt; section - the decoration process will automatically copy the &lt;head&gt; section of your content templates into your layout page.
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /admin/item/new
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository.CSRF_TOKEN=org.springframework.security.web.csrf.DefaultCsrfToken@3f698ab8, SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN]]]}
+
+Handler:
+             Type = com.shop.controller.ItemController
+           Method = com.shop.controller.ItemController#itemForm(Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = item/itemForm
+             View = null
+        Attribute = itemFormDto
+            value = com.shop.dto.ItemFormDto@4d2bac23
+           errors = []
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:&quot;en&quot;, Content-Type:&quot;text/html;charset=UTF-8&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = text/html;charset=UTF-8
+             Body = &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    
+    &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;!-- CSS only --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css&quot;&gt;
+    &lt;link href=&quot;/css/layout1.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- JS, Popper.js, and jQuery --&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+    
+
+    &lt;script&gt;
+        $(document).ready(function(){
+            var errorMessage = null;
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+
+            bindDomEvent();
+
+        });
+
+        function bindDomEvent(){
+            $(&quot;.custom-file-input&quot;).on(&quot;change&quot;, function() {
+                var fileName = $(this).val().split(&quot;\\&quot;).pop();  //이미지 파일명
+                var fileExt = fileName.substring(fileName.lastIndexOf(&quot;.&quot;)+1); // 확장자 추출
+                fileExt = fileExt.toLowerCase(); //소문자 변환
+
+                if(fileExt != &quot;jpg&quot; &amp;&amp; fileExt != &quot;jpeg&quot; &amp;&amp; fileExt != &quot;gif&quot; &amp;&amp; fileExt != &quot;png&quot; &amp;&amp; fileExt != &quot;bmp&quot;){
+                    alert(&quot;이미지 파일만 등록이 가능합니다.&quot;);
+                    return;
+                }
+
+                $(this).siblings(&quot;.custom-file-label&quot;).html(fileName);
+            });
+        }
+
+    &lt;/script&gt;
+
+
+    
+    &lt;style&gt;
+        .input-group {
+            margin-bottom : 15px
+        }
+        .img-div {
+            margin-bottom : 10px
+        }
+        .fieldError {
+            color: #bd2130;
+        }
+    &lt;/style&gt;
+
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm bg-primary navbar-dark&quot;&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot;
+                data-target=&quot;#navbarTogglerDemo03&quot; aria-controls=&quot;navbarTogglerDemo03&quot;
+                aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;Shop&lt;/a&gt;
+
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarTogglerDemo03&quot;&gt;
+            &lt;ul class=&quot;navbar-nav mr-auto mt-2 mt-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;/admin/item/new&quot;&gt;상품 등록&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;/admin/items&quot;&gt;상품 관리&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;/cart&quot;&gt;장바구니&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;/orders&quot;&gt;구매이력&lt;/a&gt;
+                &lt;/li&gt;
+                
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;/members/logout&quot;&gt;로그아웃&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;form-inline my-2 my-lg-0&quot; action=&quot;/&quot; method=&quot;get&quot;&gt;
+                &lt;input name=&quot;searchQuery&quot; class=&quot;form-control mr-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;
+                &lt;button class=&quot;btn btn-outline-success my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+
+    &lt;div class=&quot;content&quot;&gt;
+
+    &lt;form role=&quot;form&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+        &lt;p class=&quot;h2&quot;&gt;
+            상품 등록
+        &lt;/p&gt;
+
+        &lt;input type=&quot;hidden&quot; id=&quot;id&quot; name=&quot;id&quot; value=&quot;&quot;&gt;
+
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;select class=&quot;custom-select&quot; id=&quot;itemSellStatus&quot; name=&quot;itemSellStatus&quot;&gt;
+                &lt;option value=&quot;SELL&quot;&gt;판매중&lt;/option&gt;
+                &lt;option value=&quot;SOLD_OUT&quot;&gt;품절&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;div class=&quot;input-group-prepend&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;상품명&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;상품명을 입력해주세요&quot; id=&quot;itemNm&quot; name=&quot;itemNm&quot; value=&quot;&quot;&gt;
+        &lt;/div&gt;
+        
+
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;div class=&quot;input-group-prepend&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;가격&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;input type=&quot;number&quot; class=&quot;form-control&quot; placeholder=&quot;상품의 가격을 입력해주세요&quot; id=&quot;price&quot; name=&quot;price&quot; value=&quot;&quot;&gt;
+        &lt;/div&gt;
+        
+
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;div class=&quot;input-group-prepend&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;재고&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;input type=&quot;number&quot; class=&quot;form-control&quot; placeholder=&quot;상품의 재고를 입력해주세요&quot; id=&quot;stockNumber&quot; name=&quot;stockNumber&quot; value=&quot;&quot;&gt;
+        &lt;/div&gt;
+        
+
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;div class=&quot;input-group-prepend&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;상품 상세 내용&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;textarea class=&quot;form-control&quot; aria-label=&quot;With textarea&quot; id=&quot;itemDetail&quot; name=&quot;itemDetail&quot;&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+        
+
+        &lt;div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;custom-file img-div&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;custom-file-input&quot; name=&quot;itemImgFile&quot;&gt;
+                    &lt;label class=&quot;custom-file-label&quot;&gt;상품이미지1&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;custom-file img-div&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;custom-file-input&quot; name=&quot;itemImgFile&quot;&gt;
+                    &lt;label class=&quot;custom-file-label&quot;&gt;상품이미지2&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;custom-file img-div&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;custom-file-input&quot; name=&quot;itemImgFile&quot;&gt;
+                    &lt;label class=&quot;custom-file-label&quot;&gt;상품이미지3&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;custom-file img-div&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;custom-file-input&quot; name=&quot;itemImgFile&quot;&gt;
+                    &lt;label class=&quot;custom-file-label&quot;&gt;상품이미지4&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;custom-file img-div&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;custom-file-input&quot; name=&quot;itemImgFile&quot;&gt;
+                    &lt;label class=&quot;custom-file-label&quot;&gt;상품이미지5&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        
+
+        &lt;div style=&quot;text-align: center&quot;&gt;
+            &lt;button formaction=&quot;/admin/item/new&quot; type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;저장&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;37fd2bb1-a023-4a6b-93a2-729c38f8af71&quot;&gt;
+
+    &lt;/form&gt;
+
+&lt;/div&gt;
+
+    &lt;div class=&quot;footer&quot;&gt;
+        &lt;footer class=&quot;page-footer font-small cyan darken-3&quot;&gt;
+            &lt;div class=&quot;footer-copyright text-center py-3&quot;&gt;
+                2020 Shopping Mall Example WebSite
+            &lt;/div&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.4</a> at 2023. 11. 7. 오전 9:33:33</p>
+</div>
+</div>
+</body>
+</html>
